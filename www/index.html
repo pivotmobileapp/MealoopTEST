@@ -562,7 +562,7 @@
 			</ons-toolbar>
 	<ons-row >
 
-       	   <img ng-repeat="gal_images in gal_image" ng-click="onepohoto(gal_images)" ng-src="http://mealoop.com/upload/{{gal_images}}" style="width:50%;height:198px;float:left" alt="">
+       	   <img ng-repeat="gal_images in gal_image" ng-click="onepohoto(gal_images)" ng-src="http://mealoop.com/test/upload/{{gal_images}}" style="width:50%;height:198px;float:left" alt="">
 
    
 	</ons-row>
@@ -582,7 +582,7 @@
 			</ons-toolbar>
 	
 
-<img ng-src="http://mealoop.com/upload/{{one_pohoto}}" style="width:100%" alt="">
+<img ng-src="http://mealoop.com/test/upload/{{one_pohoto}}" style="width:100%" alt="">
 
    
 	
@@ -1020,7 +1020,7 @@
    </div>
    <div class="center spons" ng-style="hide_part">Featured Restaurants </div>
    <div ng-repeat ="res in rest_part.details.data" >
-    <div class="menu_pic1 menu_pics menu-pics_part" ng-style="hide_part" style="background-image:url(http://mealoop.com/upload/{{res.bg_img}});background-size:contain" ng-click="menu_restaurant(res.merchant_id,res.services.delivery,res.services.pickup)">
+    <div class="menu_pic1 menu_pics menu-pics_part" ng-style="hide_part" style="background-image:url(http://mealoop.com/test/upload/{{res.bg_img}});background-size:contain" ng-click="menu_restaurant(res.merchant_id,res.services.delivery,res.services.pickup)">
     </div>  
    </div>
    <div class="clearfix"></div>
@@ -1030,7 +1030,7 @@
     <ons-list-item class="border_bot_top" ng-click="item_details(food.item_id,food.merchant_id,food.category)">
  <div class="all_rest">
      
-     <div class="img_rest left"><img ng-src="http://mealoop.com/upload/{{food.photo}}" style="width:90px;height:80px">
+     <div class="img_rest left"><img ng-src="http://mealoop.com/test/upload/{{food.photo}}" style="width:90px;height:80px">
      <p class="rest_address food_price">${{food.price}}</p>
       </div>
      

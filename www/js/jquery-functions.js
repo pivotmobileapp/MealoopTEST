@@ -1,5 +1,5 @@
 var ajax_request;
-var ajax_url = "http://mealoop.com/mobileapp/api";
+var ajax_url = "http://mealoop.com/test/mobileapp/api";
 var cart = [];
 var dialog_title_default ="mealoop";
 var pushNotificationSenderid = "1039967975155";
@@ -273,7 +273,7 @@ setInterval(function(){
     getCurrentLocation();
     myFunction();
     var krms_config ={  
-    'ApiUrl' : "http://mealoop.com/mobileapp/api",
+    'ApiUrl' : "http://mealoop.com/test/mobileapp/api",
     'DialogDefaultTitle' : "mealoop",
     'pushNotificationSenderid' : "1039967975155",
     'facebookAppId' : "1785452871717052",
@@ -4215,7 +4215,7 @@ jQuery(document).ready(function () {
 
 function callAjaxx(url,params){
     $.ajax({
-        url: "http://mealoop.com/mobileapp/api/"+url+"?"+params,
+        url: "http://mealoop.com/test/mobileapp/api/"+url+"?"+params,
         data: "&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90",
         type: 'post',
         dataType: 'jsonp',
@@ -4348,7 +4348,7 @@ function geolocationSuccess(position) {
     var params = "lat=" + position.coords.latitude;
     params += "&lng=" + position.coords.longitude;
     callAjaxx("reverseGeoCoding", params);
-    var address_full = "http://mealoop.com/mobileapp/api/reverseGeoCoding?" + params + "";
+    var address_full = "http://mealoop.com/test/mobileapp/api/reverseGeoCoding?" + params + "";
 
     $.ajax({
         url: address_full,
@@ -4427,7 +4427,7 @@ function _update_location() {
     
     if (_lat && _long && _address && device_id) {
      
-        var address_for_update = "http://mealoop.com/mobileapp/api/MobilesRregistering?id=" + device_id + "&time=" + _time + "&lat=" + _lat + "&long=" + _long + "&country=" + _address + "";
+        var address_for_update = "http://mealoop.com/test/mobileapp/api/MobilesRregistering?id=" + device_id + "&time=" + _time + "&lat=" + _lat + "&long=" + _long + "&country=" + _address + "";
         $.ajax({
             url: address_for_update,
             type: 'post',

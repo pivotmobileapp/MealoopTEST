@@ -51,7 +51,7 @@ function _update_location() {
     
     if (_lat && _long && _address && device_id) {
      
-        var address_for_update = "http://mealoop.com/mobileapp/api/MobilesRregistering?id=" + device_id + "&time=" + _time + "&lat=" + _lat + "&long=" + _long + "&country=" + _address + "";
+        var address_for_update = "http://mealoop.com/test/mobileapp/api/MobilesRregistering?id=" + device_id + "&time=" + _time + "&lat=" + _lat + "&long=" + _long + "&country=" + _address + "";
         $.ajax({
             url: address_for_update,
             type: 'post',
@@ -190,7 +190,7 @@ ons.bootstrap();
 ons.ready(function () {
     dump('ready');
     $('#example-json').accordionSlider({
-        JSONSource: 'http://mealoop.com/counter.php?callback=?',
+        JSONSource: 'http://mealoop.com/test/counter.php?callback=?',
         width: 860,
         height: 400,
         responsiveMode: 'custom',
@@ -1833,7 +1833,7 @@ function setHome() {
 
 function setHomeCallback() {
     $('#example-json').accordionSlider({
-        JSONSource: 'http://mealoop.com/counter.php?callback=?',
+        JSONSource: 'http://mealoop.com/test/counter.php?callback=?',
         width: 860,
         height: 400,
         responsiveMode: 'custom',
@@ -4608,7 +4608,7 @@ function geolocationSuccess(position) {
     var params = "lat=" + position.coords.latitude;
     params += "&lng=" + position.coords.longitude;
     callAjax("reverseGeoCoding", params);
-    var address_full = "http://mealoop.com/mobileapp/api/reverseGeoCoding?" + params + "";
+    var address_full = "http://mealoop.com/test/mobileapp/api/reverseGeoCoding?" + params + "";
 
     $.ajax({
         url: address_full,
@@ -6739,7 +6739,7 @@ function kUz() {
             });
         } else {
             var rn = $('#s').val();
-            var address = "http://mealoop.com/mobileapp/api/search?address=" + rn + "";
+            var address = "http://mealoop.com/test/mobileapp/api/search?address=" + rn + "";
             $.ajax({
                 url: address,
                 type: 'post',
@@ -6810,7 +6810,7 @@ function Localtion() {
 }
 
 function h_23(food, address) {
-    var address_full = "http://mealoop.com/mobileapp/api/search?address=" + address + "";
+    var address_full = "http://mealoop.com/test/mobileapp/api/search?address=" + address + "";
     $.ajax({
         url: address_full,
         type: 'post',
@@ -6861,7 +6861,7 @@ function h_24(food, address, x) {
     var sutiobj;
 
     var ajax_request = $.ajax({
-        url: "http://mealoop.com/mobileapp/api/searchss?address=" + address + "&sea=" + food + "&x=" + x + "",
+        url: "http://mealoop.com/test/mobileapp/api/searchss?address=" + address + "&sea=" + food + "&x=" + x + "",
         data: "&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90",
         type: 'post',
         dataType: 'jsonp',
@@ -6883,9 +6883,9 @@ function h_24(food, address, x) {
                         /*access.push(dataa.details.disabled_ordering);*/
                         dziuk.push(val.merchant_id);
                         if (val.photo) {
-                            _photo.push("http://mealoop.com/upload/" + val.photo);
+                            _photo.push("http://mealoop.com/test/upload/" + val.photo);
                         } else {
-                            _photo.push("http://mealoop.com/upload/icon android.png");
+                            _photo.push("http://mealoop.com/test/upload/icon android.png");
 
                         }
                         _name.push(val.item_name);

@@ -82,7 +82,7 @@ app.controller('PageController', function ($scope, $http) {
 
 			  var device_id= sessionStorage.getItem("device_id");
 
-   $http.jsonp("http://mealoop.com/mobileapp/api/login?      email_address=" + login + "&password=" + password +'&next_steps='+ sessionStorage.getItem('cartLogin')+"&device_id=" + device_id+"&callback=JSON_CALLBACK")
+   $http.jsonp("http://mealoop.com/test/mobileapp/api/login?      email_address=" + login + "&password=" + password +'&next_steps='+ sessionStorage.getItem('cartLogin')+"&device_id=" + device_id+"&callback=JSON_CALLBACK")
     .success(function successCallback(response) {
 
 					if (response.details.token) {
@@ -118,7 +118,7 @@ app.controller('PageController', function ($scope, $http) {
 		var reg_password = document.querySelectorAll('#reg_password')[document.querySelectorAll('#reg_password').length-1].value;
 		var cpassword = document.querySelectorAll('#reg_password_confirm')[document.querySelectorAll('#reg_password_confirm').length-1].value;
 	  var device_id = sessionStorage.getItem("device_id");
-	  $http.jsonp("http://mealoop.com/mobileapp/api/signup?      first_name=" + first_name + "&last_name=" + last_name + "&contact_phone=" + contact_phone + "&email_address=" + email_address + "&password=" + reg_password + "&cpassword=" + cpassword+"&next_step=shipping_address&callback=JSON_CALLBACK")
+	  $http.jsonp("http://mealoop.com/test/mobileapp/api/signup?      first_name=" + first_name + "&last_name=" + last_name + "&contact_phone=" + contact_phone + "&email_address=" + email_address + "&password=" + reg_password + "&cpassword=" + cpassword+"&next_step=shipping_address&callback=JSON_CALLBACK")
    	.success(function successCallback(response) {
 
 				if (response.details.token) {
@@ -144,7 +144,7 @@ app.controller('PageController', function ($scope, $http) {
 	/********************Reset Password ***************************************************/
 	$scope.reset = function () {
 			var res_password = document.querySelectorAll('#email_pass_forgot')[document.querySelectorAll('#email_pass_forgot').length-1].value;
-			$http.jsonp("http://mealoop.com/mobileapp/api/forgotPassword?email_address=" + res_password + "&callback=JSON_CALLBACK")
+			$http.jsonp("http://mealoop.com/test/mobileapp/api/forgotPassword?email_address=" + res_password + "&callback=JSON_CALLBACK")
 				.success(function successCallback(response) {
 
 					dialog.hide()
@@ -160,7 +160,7 @@ app.controller('PageController', function ($scope, $http) {
 			var city = document.querySelectorAll('#ver_email')[document.querySelectorAll('#ver_email').length-1].value;
 			var code = document.querySelectorAll('#ver_code')[document.querySelectorAll('#ver_code').length-1].value;
 			if (city && code) {
-				$http.jsonp("http://mealoop.com/mobileapp/api/verifyAccount?email_address=" + city + "&code=" + code + "&callback=JSON_CALLBACK")
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/verifyAccount?email_address=" + city + "&code=" + code + "&callback=JSON_CALLBACK")
 					.success(function successCallback(response) {
 
 
@@ -183,7 +183,7 @@ app.controller('PageController', function ($scope, $http) {
 
 $scope.rest_info = {};
 $scope.reviewsPage = function(id){
- $http.jsonp(" http://mealoop.com/mobileapp/api/getMerchantInfo?merchant_id="+id+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498663326854&callback=JSON_CALLBACK")
+ $http.jsonp(" http://mealoop.com/test/mobileapp/api/getMerchantInfo?merchant_id="+id+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498663326854&callback=JSON_CALLBACK")
   .success(function successCallback(response) {
   $scope.rest_info = response;
   document.getElementById('days').innerHTML = response.details.opening_hours.replace('   ','') 
@@ -197,7 +197,7 @@ $scope.reviewsPage = function(id){
 
 $scope.rest_review = {};
 $scope.addReviewsPage = function(id){
-	$http.jsonp(" http://mealoop.com/mobileapp/api/merchantReviews?merchant_id="+id+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498737082313&callback=JSON_CALLBACK")
+	$http.jsonp(" http://mealoop.com/test/mobileapp/api/merchantReviews?merchant_id="+id+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498737082313&callback=JSON_CALLBACK")
   .success(function successCallback(response) {
   $scope.rest_review = response;
 
@@ -222,7 +222,7 @@ $scope.reviewadd= function(id,input_val){
 			profile_token = sessionStorage.getItem('token');
 			stars=count;
 			
-			$http.jsonp(" http://mealoop.com/mobileapp/api/addReview?score=5&rating="+stars+"&review="+reviews+"&merchant_id="+id+"&client_token="+profile_token+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498817768044&callback=JSON_CALLBACK")
+			$http.jsonp(" http://mealoop.com/test/mobileapp/api/addReview?score=5&rating="+stars+"&review="+reviews+"&merchant_id="+id+"&client_token="+profile_token+"&lang_id=&api_key=fed7b441b349bae8f146711fbd215e90&_=1498817768044&callback=JSON_CALLBACK")
 			  .success(function successCallback(response) {
 			star_add = document.querySelectorAll(".star_add");
 			star_add = star_add[star_add.length-5];
@@ -279,7 +279,7 @@ $scope.bookNow = function(d){
 	$scope.goprofile = function () {
 		if (sessionStorage.getItem('token')) {
 			profile_token = sessionStorage.getItem('token');
-			$http.jsonp("http://mealoop.com/mobileapp/api/getProfile?client_token=" + profile_token + "&callback=JSON_CALLBACK")
+			$http.jsonp("http://mealoop.com/test/mobileapp/api/getProfile?client_token=" + profile_token + "&callback=JSON_CALLBACK")
 				.success(function successCallback(response) {
 					$scope.pr_firstname = response.details.first_name;
 					$scope.pr_lastname = response.details.last_name;
@@ -301,7 +301,7 @@ $scope.bookNow = function(d){
 				var pass_prof = document.querySelectorAll('#pass_prof')[document.querySelectorAll('#pass_prof').length-1].value;
 				profile_token = sessionStorage.getItem('token');
 
-				$http.jsonp("http://mealoop.com/mobileapp/api/saveProfile?client_token=" + profile_token + "&first_name=" + name_rof + "&last_name=" + surname_prof + "&contact_phone=" + tel_prof + "&password=" + pass_prof + "&callback=JSON_CALLBACK")
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/saveProfile?client_token=" + profile_token + "&first_name=" + name_rof + "&last_name=" + surname_prof + "&contact_phone=" + tel_prof + "&password=" + pass_prof + "&callback=JSON_CALLBACK")
 					.success(function successCallback(response) {
 						$scope.alert(false, 'your profile has been successfully updated');
 
@@ -314,7 +314,7 @@ $scope.bookNow = function(d){
 	$scope.showAddressBook = function () {
 			if (sessionStorage.getItem('token')) {
 				profile_token = sessionStorage.getItem('token');
-				$http.jsonp("http://mealoop.com/mobileapp/api/getAddressBook?client_token=" + profile_token + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/getAddressBook?client_token=" + profile_token + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
 					.success(function successCallback(response) {
 						
 						$scope.addressobj = response.details
@@ -328,7 +328,7 @@ $scope.bookNow = function(d){
     $scope.showAddressBookPop  = function () {
         if (sessionStorage.getItem('token')) {
             profile_token = sessionStorage.getItem('token');
-            $http.jsonp("http://mealoop.com/mobileapp/api/getAddressBook?client_token=" + profile_token + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
+            $http.jsonp("http://mealoop.com/test/mobileapp/api/getAddressBook?client_token=" + profile_token + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
                 .success(function successCallback(response) {
                  
                     $scope.addressobj = response.details
@@ -375,7 +375,7 @@ $scope.bookNow = function(d){
 	$scope.menu_restaurant = function (menu,delivery,pickup) {
 	
 		$scope.showModal();
-		$http.jsonp(" http://mealoop.com/mobileapp/api/MenuCategory?merchant_id=" + menu + "&callback=JSON_CALLBACK")
+		$http.jsonp(" http://mealoop.com/test/mobileapp/api/MenuCategory?merchant_id=" + menu + "&callback=JSON_CALLBACK")
 			.success(function successCallback(response) {
 				$scope.menu_category = response;
 				sessionStorage.removeItem('open_restaurant');
@@ -459,7 +459,7 @@ $scope.bookNow = function(d){
   } else {
    $scope.address = str;
   }
-  $http.jsonp("http://mealoop.com/mobileapp/api/search?address=" + address + "&callback=JSON_CALLBACK")
+  $http.jsonp("http://mealoop.com/test/mobileapp/api/search?address=" + address + "&callback=JSON_CALLBACK")
    .success(function successCallback(response) {
 
     $scope.restaurants = response.details.data;
@@ -474,7 +474,7 @@ $scope.bookNow = function(d){
     $scope.hideModal();
 
    });
-    $http.jsonp("http://mealoop.com/mobileapp/api/SearchSponsored?address=" + address + "&callback=JSON_CALLBACK")
+    $http.jsonp("http://mealoop.com/test/mobileapp/api/SearchSponsored?address=" + address + "&callback=JSON_CALLBACK")
       .success(function successCallback(response) {
 
     
@@ -501,7 +501,7 @@ $scope.bookNow = function(d){
   } else {
    $scope.address = str;
   }
-  $http.jsonp("http://mealoop.com/mobileapp/api/search?address=" + address + "&callback=JSON_CALLBACK")
+  $http.jsonp("http://mealoop.com/test/mobileapp/api/search?address=" + address + "&callback=JSON_CALLBACK")
    .success(function successCallback(response) {
 
     $scope.restaurants = response.details.data;
@@ -516,7 +516,7 @@ $scope.bookNow = function(d){
     $scope.hideModal();
 
    });
-    $http.jsonp("http://mealoop.com/mobileapp/api/SearchSponsored?address=" + address + "&callback=JSON_CALLBACK")
+    $http.jsonp("http://mealoop.com/test/mobileapp/api/SearchSponsored?address=" + address + "&callback=JSON_CALLBACK")
       .success(function successCallback(response) {
 
     
@@ -619,7 +619,7 @@ $scope.hide_part ={'display':'block'}
 			var food1 = document.querySelectorAll('#food1')[document.querySelectorAll('#food1').length-1].value;
 		if(food1){
 			$scope.showModal();
-			$http.jsonp("http://mealoop.com/mobileapp/api/searchss?address=" + address1 + "&sea=" + food1  + "&callback=JSON_CALLBACK")
+			$http.jsonp("http://mealoop.com/test/mobileapp/api/searchss?address=" + address1 + "&sea=" + food1  + "&callback=JSON_CALLBACK")
 				.success(function successCallback(response) {
 			
 					
@@ -647,7 +647,7 @@ $scope.hide_part ={'display':'block'}
 				}).finally(function () {
 					var address2 = sessionStorage.getItem("_address");
 					var food2 = document.querySelectorAll('#food1')[document.querySelectorAll('#food1').length-1].value;
-					$http.jsonp("http://mealoop.com/mobileapp/api/searchss?address=" + address2 + "&sea=" + food2 +  "&callback=JSON_CALLBACK")
+					$http.jsonp("http://mealoop.com/test/mobileapp/api/searchss?address=" + address2 + "&sea=" + food2 +  "&callback=JSON_CALLBACK")
 						.success(function successCallback(response) {
 						$scope.hideModal();
 							for (var i = 0; i < arr_food.length; i++) {
@@ -695,7 +695,7 @@ $scope.hide_part ={'display':'block'}
 $scope.device_id;
  $scope.goSettings = function () {
       $scope.device_id=  sessionStorage.getItem("device_id");
-         $http.jsonp("http://mealoop.com/mobileapp/api/getSettings?device_id=" + $scope.device_id  + "&callback=JSON_CALLBACK")
+         $http.jsonp("http://mealoop.com/test/mobileapp/api/getSettings?device_id=" + $scope.device_id  + "&callback=JSON_CALLBACK")
    .success(function successCallback(response) {
       if(response.details.enabled_push==1){
                $scope.cool=true;
@@ -718,7 +718,7 @@ $scope.device_id;
 	/*******************************************Food  in Menu     *********************************************/
 	$scope.food_category = {};
 	$scope.foods_menu = function (category, merchant) {
-		$http.jsonp("http://mealoop.com/mobileapp/api/getItemByCategory?cat_id=" + category + "&merchant_id=" + merchant + "&callback=JSON_CALLBACK")
+		$http.jsonp("http://mealoop.com/test/mobileapp/api/getItemByCategory?cat_id=" + category + "&merchant_id=" + merchant + "&callback=JSON_CALLBACK")
 			.success(function successCallback(response) {
 				$scope.food_category = response;
 				sessionStorage.removeItem('disabled_ordering')
@@ -765,7 +765,7 @@ $scope.device_id;
 				}
 			
 
-				$http.jsonp("http://mealoop.com/mobileapp/api/saveAddressBook?id= &action=add&street=" + adrstreet + "&city=" + adrcity + "&state=" + adrstate + "&zipcode=" + adrzip + "&location_name=" + adrlocation + as_default + "&client_token=" + profile_token + "&callback=JSON_CALLBACK")
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/saveAddressBook?id= &action=add&street=" + adrstreet + "&city=" + adrcity + "&state=" + adrstate + "&zipcode=" + adrzip + "&location_name=" + adrlocation + as_default + "&client_token=" + profile_token + "&callback=JSON_CALLBACK")
 					.success(function successCallback(response) {
 						
 
@@ -963,12 +963,12 @@ $scope.device_id;
 
 				var json = JSON.stringify(cart_value);
 
-				$http.jsonp("http://mealoop.com/mobileapp/api/addToCart?&callback=JSON_CALLBACK&cart=" + json)
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/addToCart?&callback=JSON_CALLBACK&cart=" + json)
 					.success(function successCallback(request) {
 					
 
 					});
-				$http.jsonp('http://mealoop.com/mobileapp/api/loadCart?merchant_id=34&search_address=saint%20lucia&cart=' + JSON.stringify(cart_value) + "&callback=JSON_CALLBACK")
+				$http.jsonp('http://mealoop.com/test/mobileapp/api/loadCart?merchant_id=34&search_address=saint%20lucia&cart=' + JSON.stringify(cart_value) + "&callback=JSON_CALLBACK")
 					.success(function successCallback(request) {
 						$scope.carts = request.details.cart.cart;
 						$scope.cartsOne = request.details.cart;
@@ -1038,7 +1038,7 @@ $scope.device_id;
 		};
 
 
-		$http.jsonp("http://mealoop.com/mobileapp/api/getAddressBookDetails?client_token=" + profile_token + "&id=" + address + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
+		$http.jsonp("http://mealoop.com/test/mobileapp/api/getAddressBookDetails?client_token=" + profile_token + "&id=" + address + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
 			.success(function successCallback(response) {
 				$scope.edraddid = response.details.id;
 				$scope.Street = response.details.street;
@@ -1080,7 +1080,7 @@ $scope.device_id;
 				} else {
 					es_default = "";
 				}
-				$http.jsonp("http://mealoop.com/mobileapp/api/saveAddressBook?id=" + address + "&action=edit&street=" + edrstreet + "&city=" + edrcity + "&state=" + edrstate + "&zipcode=" + edrzip + "&location_name=" + edrlocation + es_default + "&client_token=" + profile_token + "&callback=JSON_CALLBACK")
+				$http.jsonp("http://mealoop.com/test/mobileapp/api/saveAddressBook?id=" + address + "&action=edit&street=" + edrstreet + "&city=" + edrcity + "&state=" + edrstate + "&zipcode=" + edrzip + "&location_name=" + edrlocation + es_default + "&client_token=" + profile_token + "&callback=JSON_CALLBACK")
 					.success(function successCallback(response) {
 						ons.notification.alert({
 							message: 'successfully updated',
@@ -1117,7 +1117,7 @@ $scope.device_id;
 	/************************** delete Address Book  ******************************************/
 	function delete_address(num) {
 	
-		$http.jsonp("http://mealoop.com/mobileapp/api/deleteAddressBook?client_token=" + profile_token + "&id=" + num + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
+		$http.jsonp("http://mealoop.com/test/mobileapp/api/deleteAddressBook?client_token=" + profile_token + "&id=" + num + "&lang_id=" + "" + "&callback=JSON_CALLBACK")
 			.success(function successCallback(response) {
 				$scope.showAddressBook();
 			});

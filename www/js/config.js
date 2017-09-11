@@ -1,6 +1,6 @@
 
 var krms_config ={	
-	'ApiUrl' : "http://mealoop.com/test/mobileapp/api",
+	'ApiUrl' : "http://mealoop.com/test/test/mobileapp/api",
 	'DialogDefaultTitle' : "mealoop",
 	'pushNotificationSenderid' : "1039967975155",
 	'facebookAppId' : "1785452871717052",
