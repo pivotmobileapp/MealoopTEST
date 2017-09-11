@@ -1,0 +1,13 @@
+{
+    "name": "com.mealoop",
+    "version": "2.0",
+    "displayName": "Mealoop",
+    "cordova": {
+        "platforms": [
+            "browser"
+        ]
+    },
+    "dependencies": {
+        "cordova-browser": "~4.1.0"
+    }
+}
